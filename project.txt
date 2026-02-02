@@ -1,0 +1,42 @@
+requirements:
+--{project_count}: number of times (^##\s) occurs for setting loop limits
+{project_readme}: the readme for the specific branch
+{branch-name}: name of the repo found using (^##\s)
+{project_file}: excercise .py file
+{print}: bool variable that allows to write to {project_readme}
+
+
+
+
+todo list:
+
+inside the bat:
+    create github branch called {{project number}hyphen{branch-name: with spaces replaces with hyphen}}
+    checkout to branch 
+    copy {corresponding file} and {individual readme}
+    git commit push
+
+
+inside python:
+    receive args
+    preform regex and categorise if start or end of new {project_readme}
+    return vars using os.sys(f'echo {variables}')
+        >True :start sending output to new {project_readme}
+        >False  :discard till next start
+        >{branch-name} 
+
+
+
+
+testing:
+add batch calls to helper function
+    =>dry run to see if :
+        all files are found
+        all vars are defined
+        
+
+
+notes
+--use batch script only as a launcher
+--use the readme to iterate:
+++send the read lines from main to helper to check regex
