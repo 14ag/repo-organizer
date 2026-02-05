@@ -18,21 +18,16 @@ inside the bat:
 
 
 inside python:
-    receive args
-    preform regex and categorise if start or end of new {project_readme}
-    return vars using os.sys(f'echo {variables}')
-        >True :start sending output to new {project_readme}
-        >False  :discard till next start
-        >{branch-name} 
-
+    use pattern to find py file associated with the readme
+        >implement getFileName()
 
 
 
 testing:
 add batch calls to helper function
     =>dry run to see if :
-        all files are found
         all vars are defined
+        all files are found
         
 
 
@@ -40,3 +35,17 @@ notes
 --use batch script only as a launcher
 --use the readme to iterate:
 ++send the read lines from main to helper to check regex
+
+
+
+
+
+
+done:
+inside python:
+    receive args
+    preform regex and categorise if start or end of new {project_readme}
+    return vars using os.sys(f'echo {variables}')
+        >True :start sending output to new {project_readme}
+        >False  :discard till next start
+        >{branch-name} 
