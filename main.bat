@@ -8,10 +8,12 @@
 ::     subroutines for further processing of each file.
 ::
 :: Usage:
+::	   - tag EACH debug and test line using the comment '::debugline' in the 
+::			line before
 ::     - Drag and drop a file or folder onto the script,
-::       or execute the script and follow the on-screen prompts.
+::       	or execute the script and follow the on-screen prompts.
 ::     - Ensure that the required file extensions (e.g., .txt) are correctly
-::       specified.
+::       	specified.
 ::
 :: Author:
 ::     Philip
@@ -171,13 +173,16 @@ goto :end
 ::---------------------------------------------------------------------------------------------------
 set "x=%*"
 setlocal enabledelayedexpansion
-for /f "delims=" %%a in (package0.json) do (
+for /f "delims=" %%a in (readme2.md) do (
     set "line=%%a"
-    for /f "delims=" %%b in (python helper_0.py --args "!line!" ) do (
-        
+    for /f "delims=" %%b in (python helper_0.py "!line!" ) do (
+        set "result0=%%b"
+		cls
+		echo !result0!
     )
 )
-call :main %x%
+::debugline
+@REM call :main %x%
 exit /b %errorlevel%
 
 
