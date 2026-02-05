@@ -8,7 +8,7 @@ requirements:
 
 
 
-todo list:
+todo list: 
 
 inside the bat:
     create github branch called {{project number}hyphen{branch-name: with spaces replaces with hyphen}}

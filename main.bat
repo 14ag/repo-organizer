@@ -152,7 +152,7 @@ if %errorlevel% equ 2 (
 	endlocal
 	goto :end
 ) else exit /b 1
-
+ 
 
 :fileProcessing
 call :check %file% "%extensions%"
