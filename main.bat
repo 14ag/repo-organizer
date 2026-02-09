@@ -2,6 +2,7 @@
 setlocal enabledelayedexpansion
 set "py_folder_path="
 
+python helper_1.py
 
 for /f "delims=" %%a in (readme2.md) do (
     set "line=%%a"

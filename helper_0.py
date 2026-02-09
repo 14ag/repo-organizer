@@ -1,5 +1,6 @@
-import os
+import os #
 import sys
+import json
 import re #regex
 
 args=" ".join(str(item) for item in sys.argv[1:])
@@ -11,26 +12,24 @@ def main(str0):
         #returns true to allow main to send out to a new readme
         start_regex=r"^##\s" #title pattern
         end_regex=r"<br>"
-        file_regex=r"^#\s\d{1,}"
+        file_regex=r"(?<=^#\s)\d{1,}"
         match_start=re.search(start_regex, line0)
         match_end=re.search(end_regex, line0)
         match_file=re.search(file_regex, line0)
 
         def getBranchName():
-            regex1=r"(?<=:\s).*" #selects * after the colon and whitespace
+            #returns the title of the new branch name and next readme
+
+            regex1=r"(?<=:\s).*" #selects all that comes after colon and a wspace
             branch_name=re.search(regex1,line0).group(0)
             return branch_name
         
         def getFileName():
-            file_name=""
-            #
-            #
-            #
-            #
-            #
-            #
-            #
-            #
+            with open(r"test\test.txt", "r") as test0:
+                file_list=json.loads(test0.read())
+
+            n=match_file.group(0)
+            file_name="".join(file_list[n])
             return file_name
         
         if match_start:
@@ -40,7 +39,7 @@ def main(str0):
         elif match_file:
             return False, getFileName()
         else:
-            return True, 0
+            return True, 1
         
     return " ".join(str(i) for i in printSwitch())
 
