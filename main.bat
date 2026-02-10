@@ -1,7 +1,7 @@
 ::@echo off
 setlocal enabledelayedexpansion
 ::set "repo_path="%userprofile%\sauce\learn-git""
-set "repo_path=learn-git"
+set "repo_path=readme"
 set "py_files_backup=test"
 
 set "readme=readme3.md"
@@ -29,6 +29,9 @@ for /f "delims=" %%a in (readme2.md) do (
     )
     pause
 )
+pause
+exit /b
+
 
 :main
 echo XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
@@ -41,6 +44,9 @@ echo XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 exit /b
 
 
+pause
+endlocal
+exit
 :main0
 pushd "!repo_path!"
 git checkout main
@@ -56,5 +62,5 @@ git push
 popd
 
 
-endlocal
-pause
+
+
