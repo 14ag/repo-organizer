@@ -38,7 +38,23 @@ notes
 -- use os.chdir() to change directories
 
 
-
+debug:
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+branch name _The Dinner Bill Splitter_
+python file _test\22_25%_appearance.py_
+repo folder _readme_
+        1 file(s) copied.
+        1 file(s) moved.
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+.
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+branch name _The robust calculator_
+python file _test\8_robust_calculator.py_
+repo folder _readme_
+        1 file(s) copied.
+        1 file(s) moved.
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Press any key to continue . . .
 
 
 
