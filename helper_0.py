@@ -19,7 +19,6 @@ def main(str0):
 
         def getBranchName():
             #returns the title of the new branch name and next readme
-
             regex1=r"(?<=:\s).*" #selects all that comes after colon and a wspace
             branch_name=re.search(regex1,line0).group(0)
             return branch_name
@@ -39,7 +38,7 @@ def main(str0):
         elif match_file:
             return False, getFileName()
         else:
-            return True, 1
+            return True, 0
         
     return " ".join(str(i) for i in printSwitch())
 
