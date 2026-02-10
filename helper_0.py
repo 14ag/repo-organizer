@@ -19,8 +19,10 @@ def main(str0):
 
         def getBranchName():
             #returns the title of the new branch name and next readme
-            regex1=r"(?<=:\s).*" #selects all that comes after colon and a wspace
+
+            regex1=r'(?<=").*(?=")' #selects all that comes btn quotes
             branch_name=re.search(regex1,line0).group(0)
+            branch_name=branch_name.replace(" ","-").lower()
             return branch_name
         
         def getFileName():
