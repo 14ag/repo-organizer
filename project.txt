@@ -20,12 +20,14 @@ inside the bat:
 inside python:
     
 
-
+misc:
+    >documentation
+    >add a wakatime badge to readme
 
 
 testing:
 add batch calls to helper function
-    =>dry run to see if :
+    >dry run to see if :
         all vars are defined
         all files are found
         

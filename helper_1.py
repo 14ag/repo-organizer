@@ -1,9 +1,12 @@
 #builds a key value db of files in folder
 import json
 import os
+import sys
+
+args=r" ".join(str(item) for item in sys.argv[1:])
 
 file_list_data={}
-working_directory=r"test"
+working_directory=args
 
 
 files_fetched=os.listdir(working_directory)

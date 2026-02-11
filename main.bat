@@ -1,40 +1,44 @@
 @echo off
 ::set "repo_path="%userprofile%\sauce\learn-git""
-set "repo_path=readme"
-set "is_git_push=0"
+set "repo_path=%userprofile%\sauce\python-arc"
 set "readme=readme3.md"
+set "long_readme=README2.md"
+@REM set "long_readme="%userprofile%\sauce\code_backups\python_exercises\README.md""
+set "backup_stash=%userprofile%\sauce\code_backups\python_exercises"
 
-call "cmd /c python helper_1.py"
-
+call "cmd /c python helper_1.py %backup_stash%"
+pause
 setlocal enabledelayedexpansion
-for /f "delims=" %%a in (readme2.md) do (
+for /f "usebackq delims=" %%a in (%long_readme%) do (
+
     rem each line is in %a
-    ::echo %%a
-    for /f "delims=" %%b in ('python helper_0.py "%%a"') do (
-        rem %c holds bool. will redirect to readme if true
-        ::echo %%b
+    set "line1=%%a"
+    set "line1=!line1:"=\"!"
+    echo.
+    for /f "delims=" %%b in ('python helper_0.py "!line1!"') do (
+        @rem %c holds bool. will redirect to readme if true
+        pause
         for /f "tokens=1,* delims= " %%c in ("%%b") do (
             ::echo _%%c_ _%%d_
             if "%%c"=="True" (
                 if not "%%d"=="0" set "branch_name=%%d"
-                echo %%a>>%readme%
+                ::echo %%a>>%readme%
+                echo. >nul
+            
             )            
             if "%%c"=="False" (
                 if not "%%d"=="0" (
-                    set "file_name=test\%%d"
-                    set "is_git_push=0"
+                    if not !line0!=="" call :main
+                    set "file_name=%backup_stash%\%%d"
                 ) else (
-                    if "%is_git_push%"=="0" (
-                       call :main 
-                       set "is_git_push=1"
-                    )
+                    set "line0=!line1!"
                 )
             )
         )   
     )
-    
 )
 pause
+exit /b
 exit /b
 
 
@@ -44,34 +48,32 @@ echo XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 echo branch name _!branch_name!_
 echo python file _!file_name!_
 echo repo folder _%repo_path%_
-copy !file_name! %repo_path%
-move !readme! %repo_path%\readme.md
+
+echo copying !file_name! %repo_path%...
+::copy !file_name! %repo_path%
+echo moving  !readme! %repo_path%\readme.md...
+::move !readme! %repo_path%\readme.md
+
 echo XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+echo.
 exit /b
 
-
-
-
-
-
-
 pause
-endlocal
-exit
+
+
 :main0
 pushd "%repo_path%"
 git checkout main
 git checkout -b !branch_name!
-del *.py *.md
+del *.*
 popd
 copy !file_name! %repo_path%
-copy !readme! %repo_path%
+move !readme! %repo_path%\readme.md
 pushd "%repo_path%"
 git add .
 git commit -m "!branch_name!"
 git push
 popd
 
-
-
-
+exit /b
+endlocal

@@ -20,13 +20,14 @@ def main(str0):
         def getBranchName():
             #returns the title of the new branch name and next readme
 
+            regex0=r'(?<=:\s).*' #selects all that comes btn quotes
             regex1=r'(?<=").*(?=")' #selects all that comes btn quotes
             branch_name=re.search(regex1,line0).group(0)
             branch_name=branch_name.replace(" ","-").lower()
             return branch_name
         
         def getFileName():
-            with open(r"test\test.txt", "r") as test0:
+            with open(r"file_list.json", "r") as test0:
                 file_list=json.loads(test0.read())
 
             n=match_file.group(0)
@@ -45,3 +46,6 @@ def main(str0):
     return " ".join(str(i) for i in printSwitch())
 
 os.system(f'echo {main(args)}')
+
+#os.system(f'echo {args}')
+#print(args)
