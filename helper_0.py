@@ -20,7 +20,6 @@ def main(str0):
         def getBranchName():
             #returns the title of the new branch name and next readme
 
-            regex0=r'(?<=:\s).*' #selects all that comes btn quotes
             regex1=r'(?<=").*(?=")' #selects all that comes btn quotes
             branch_name=re.search(regex1,line0).group(0)
             branch_name=branch_name.replace(" ","-").lower()
@@ -47,5 +46,3 @@ def main(str0):
 
 os.system(f'echo {main(args)}')
 
-#os.system(f'echo {args}')
-#print(args)

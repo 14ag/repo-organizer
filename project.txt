@@ -11,10 +11,7 @@ requirements:
 todo list: 
 
 inside the bat:
-    create github branch called {{project number}hyphen{branch-name: with spaces replaces with hyphen}}
-    checkout to branch 
-    copy {corresponding file} and {individual readme}
-    git commit push
+
 
 
 inside python:
@@ -74,3 +71,10 @@ inside python:
             + create dictionary where the set of chars before the first underscore as name, the whole filename as value
                 + use string[:2].strip("_")
             + save the dictionary as a json
+
+
+inside the bat:
+    create github branch called {{project number}hyphen{branch-name: with spaces replaces with hyphen}}
+    checkout to branch 
+    copy {corresponding file} and {individual readme}
+    git commit push
