@@ -25,35 +25,45 @@ for /f "usebackq delims=" %%a in (%long_readme%) do (
                 if not "%%d"=="0" (
                     set "file_name=%backup_stash%\%%d"
                 ) else (
-                    if not "!line0!"=="%%c" call :main
+                    if not "!line0!"=="%%c" if defined branch_name call :main
                 )
             )
-        set "line0=%%c"    
+        set "line0=%%c"
         )   
     )
     
 )
+echo done
 pause
 exit /b
 
+:main0
+::variables debug
+echo xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+echo branch name: !branch_name!
+echo file name: !file_name!
+echo xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+echo.
+exit /b
 
 
 :main
 pushd "%repo_path%"
-git checkout main
-git checkout -b !branch_name!
+git checkout master >nul
+git checkout -b !branch_name! 
 del /Q *.py *.md
 
 popd
 echo copying !file_name! %repo_path%...
 copy !file_name! %repo_path% >nul
 
-echo moving  !readme! %repo_path%\readme.md...
-move !readme! %repo_path%\readme.md >nul
-
+echo moving  %readme% %repo_path%\readme.md...
+move %readme% %repo_path%\readme.md >nul
+echo .
 pushd "%repo_path%"
-git add .
-git commit -m "!branch_name!"
+git add . >nul
+git commit -m "!branch_name!" >nul
+git push --set-upstream origin !branch_name! >nul
 git push
 popd
 
