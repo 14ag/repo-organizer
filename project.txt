@@ -27,6 +27,7 @@ add batch calls to helper function
     >dry run to see if :
         all vars are defined
         all files are found
+        [Done] exited with code=0 in 163.273 seconds
         
 
 

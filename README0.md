@@ -1567,7 +1567,7 @@ The previous task was about removing elements. This task is about **merging** an
 
 ---
 
-## LeetCode Challenge: Merge Sorted Array (In-Place)
+## LeetCode Challenge: "Merge Sorted Array" (In-Place)
 
 ### The Goal
 
@@ -1622,7 +1622,7 @@ Hour 29. Let’s move to **Bit Manipulation** and **Parity**. This is a logic-he
 
 ---
 
-## LeetCode Challenge: Single Number
+## LeetCode Challenge: "Single Number"
 
 ### The Goal
 
@@ -1682,7 +1682,7 @@ Hour 30. You've got XOR in your toolkit. Now we’re moving to **Coordinate Geom
 
 ---
 
-## LeetCode Challenge: Monotonic Array
+## LeetCode Challenge: "Monotonic Array"
 
 ### The Goal
 
@@ -1741,7 +1741,7 @@ Hour 31. You've handled monotonic trends and bit manipulation. Now we’re movin
 
 ---
 
-## LeetCode Challenge: Transpose Matrix
+## LeetCode Challenge: "Transpose Matrix"
 
 ### The Goal
 
@@ -1809,7 +1809,7 @@ Hour 32. You’ve successfully flipped a matrix. Now we’re looking at **Bounda
 
 ---
 
-## LeetCode Challenge: Can Place Flowers
+## LeetCode Challenge: "Can Place Flowers"
 
 ### The Goal
 
@@ -1874,7 +1874,7 @@ Hour 33. You're moving from spatial logic to **Array Partitioning**. This is a l
 
 ---
 
-## LeetCode Challenge: Find Pivot Index
+## LeetCode Challenge: "Find Pivot Index"
 
 ### The Goal
 
@@ -1937,7 +1937,7 @@ Hour 34. You’re moving from finding pivots to **Cycle Detection** and **State 
 
 ---
 
-## LeetCode Challenge: Happy Number
+## LeetCode Challenge: "Happy Number"
 
 ### The Goal
 

@@ -10,9 +10,9 @@ def main(str0):
 
     def printSwitch():
         #returns true to allow main to send out to a new readme
-        start_regex=r"^\d{1,2}:##\s" #title pattern
+        start_regex=r"^\d{1,}:##\s" #title pattern
         end_regex=r"<br>"
-        file_regex=r"#\s\d{1,2}"
+        file_regex=r"#\s\d{1,}"
         match_start=re.search(start_regex, line0)
         match_end=re.search(end_regex, line0)
         match_file=re.search(file_regex, line0)

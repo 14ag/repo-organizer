@@ -7,27 +7,24 @@ set PYTHONUTF8=1
 
 call "cmd /c python helper_1.py %backup_stash%"
 setlocal enabledelayedexpansion
-for /f "delims=" %%a in ('findstr /n "^" "README2.md"') do (
+for /f "delims=" %%a in ('findstr /n "^" "README0.md"') do (
 
     @rem each line is in %a
     set "line1=%%a"
     set "line1a=!line1:"=\"!"
     for /f "delims=" %%b in ('python helper_0.py "!line1a!"') do (
-        echo !line1a!
-        echo %%b
         for /f "tokens=1,* delims= " %%c in ("%%b") do (
-            @rem %c holds bool. will redirect to readme if true
+            :: %c holds bool. will redirect to readme if true
+            echo. >nul
             if "%%c"=="True" (
                 if not "%%d"=="0" set "branch_name=%%d"
                 set "line1b=!line1:*:=!"
-                call :out
+                rem call :out
             )
 
             if "%%c"=="False" (
                 if not "%%d"=="0" (
                     set "file_name=%backup_stash%\%%d"
-                    echo.
-                    echo %%d
                 ) else (
                     if not "!line0!"=="%%c" if defined branch_name call :main
                 )
@@ -36,6 +33,7 @@ for /f "delims=" %%a in ('findstr /n "^" "README2.md"') do (
         )   
     )
 )
+call:main
 echo done
 pause
 exit /b
@@ -49,7 +47,6 @@ echo branch name: !branch_name!
 echo file name: !file_name!
 echo xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 echo.
-pause
 exit /b
 
 
