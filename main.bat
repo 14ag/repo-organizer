@@ -71,8 +71,7 @@ echo.
 pushd "%repo_path%"
 git add . >nul
 git commit -m "!branch_name!" >nul
-git push --set-upstream origin !branch_name! >nul
-git push
+git push || git push --set-upstream origin !branch_name! >nul
 popd
 echo.
 echo.
