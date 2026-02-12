@@ -19,7 +19,7 @@ for /f "delims=" %%a in ('findstr /n "^" "README0.md"') do (
             if "%%c"=="True" (
                 if not "%%d"=="0" set "branch_name=%%d"
                 set "line1b=!line1:*:=!"
-                rem call :out
+                call :out
             )
 
             if "%%c"=="False" (
@@ -40,7 +40,7 @@ exit /b
 exit /b
 exit /b
 
-:main
+:main0
 ::variables debug
 echo xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 echo branch name: !branch_name!
@@ -55,10 +55,10 @@ echo(!line1b! >>%readme%
 exit /b
 
 
-:main0
+:main
 pushd "%repo_path%"
 git checkout master >nul
-git checkout -b !branch_name! 
+git checkout !branch_name! || git checkout -b !branch_name!
 del /Q *.py *.md
 
 popd
