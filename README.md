@@ -1,20 +1,49 @@
-# Introduction 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
+## Introduction
 
-# Getting Started
-TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
-1.	Installation process
-2.	Software dependencies
-3.	Latest releases
-4.	API references
+repo-organiser system is a lightweight command-line driven content parser.
 
-# Build and Test
-TODO: Describe and show how to build your code and run the tests. 
+It interprets specially formatted text lines and uses numbered file prefixes to map references to actual filenames.
 
-# Contribute
-TODO: Explain how other users and developers can contribute to make your code better. 
+It is designed to split contents in a repo using a structured markdown file.
 
-If you want to learn more about creating good readme files then refer the following [guidelines](https://docs.microsoft.com/en-us/azure/devops/repos/git/create-a-readme?view=azure-devops). You can also seek inspiration from the below readme files:
-- [ASP.NET Core](https://github.com/aspnet/Home)
-- [Visual Studio Code](https://github.com/Microsoft/vscode)
-- [Chakra Core](https://github.com/Microsoft/ChakraCore)
+The contents are split into different branches based on pattern matching.
+
+## Getting Started
+
+###	Software dependencies
+1. Python
+2. Windows 10 or Windows 11
+
+###	Installation process
+- Clone this repo
+
+```
+git clone https://github.com/14ag/repo-organizer
+```
+or
+```
+git clone https://dev.azure.com/muriukipn/repeatAttilery/_git/repo-organizer
+```
+- Asign variables in main.bat
+    
+    - `repo-path` is the path to the folder containing the repo
+
+    - `readme` is a readme of each branch 
+
+    - `long_readme` is a specificaly formatted repo readme file that represents the project to be split
+
+- Run using `main.bat`
+
+
+
+
+## Testing and debugging
+* Set variable `repo-path` inside `main.bat` to `README0.md`.
+* It is a specificaly formated markdown sample with the 4 types of inputs that are parsed by `helper_0.py`:
+* comment out line 22: `call :out`
+* on line 30 change `call :main` to `call :main0` to inspect variables
+
+## Contribute
+- Documentation
+- Algorithm refinement
+- Edge cases

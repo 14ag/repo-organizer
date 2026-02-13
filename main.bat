@@ -26,14 +26,15 @@ for /f "delims=" %%a in ('findstr /n "^" "README0.md"') do (
                 if not "%%d"=="0" (
                     set "file_name=%backup_stash%\%%d"
                 ) else (
-                    if not "!line0!"=="%%c" if defined branch_name call :main
+                    if not "!line0!"=="%%c" if defined branch_name (
+                        call :main
+                    )
                 )
             )
         set "line0=%%c"
         )   
     )
 )
-call:main
 echo done
 pause
 exit /b
